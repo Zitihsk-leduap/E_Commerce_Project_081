@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <style>
+    /* Custom Navbar Styling */
+    .navbar {
+      background-color: #343a40; /* Dark background color */
+      color: white; /* White text */
+    }
+    .navbar .navbar-brand, .navbar .navbar-nav .nav-link {
+      color: white;
+    }
+    .navbar .navbar-nav .nav-link:hover {
+      color: #007bff; /* Optional: Add hover effect */
+    }
+    /* Optional: Custom style for enlarging the cart icon */
+    .navbar .cart-icon {
+      font-size: 2rem; /* Adjust this value for different icon sizes */
+    }
+    /* Centering the search bar */
+    .navbar .form-inline {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%); /* Center the search bar horizontally */
+    }
+    /* Styling the Login button in yellow */
+    .btn-yellow {
+      background-color: #f8c20c; /* Yellow color */
+      color: white;
+    }
+    .btn-yellow:hover {
+      background-color: #e0a800; /* Darker yellow for hover */
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark m-3">
+    <a class="navbar-brand" href="#">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+      <!-- Login Button -->
+      <a href="{% url 'login' %}" class="btn btn-yellow mx-2">Login</a>
+
+      <!-- Centered Search Form -->
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+
+      <!-- Cart Icon on the right side of the navbar -->
+      <div class="ml-auto">
+        <a href="{% url 'cart'%}" class="nav-link">
+          <i class="bi bi-cart cart-icon"></i> <!-- Enlarge cart icon -->
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container my-4">
+    {% block content %}
+    {% endblock %}
+  </div>
+
+  <!-- Bootstrap Scripts -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pjaaA8dDz/6b2q3k3C4S4tF+r74pOUe3zZpzM5EN5ni2z4S9g6r/qD0Urj9ThgK3" crossorigin="anonymous"></script>
+
+</body>
+</html>
